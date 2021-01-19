@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Customer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Customer</h2>
+
+<table class="table table-bordered	table-hover">
+    <thead>
+        <tr>
+            <th>Customer Name</th>
+            <th>Date of Birth</th>
+        </tr>
+    </thead>
+    <tr>
+        <td><p>@Model.Name</p></td>
+        <td><p>@Model.BirthDate</p></td>
+    </tr>
+</table>
