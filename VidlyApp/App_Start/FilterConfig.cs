@@ -9,6 +9,7 @@ namespace VidlyApp
         {
             filters.Add(new HandleErrorAttribute());
             filters.Add(new AuthorizeAttribute());
+            filters.Add(new RequireHttpsAttribute()); //Now the application endpoints will no longer be available on an HTTP channel.
         }
     }
 }

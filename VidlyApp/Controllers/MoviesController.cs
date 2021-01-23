@@ -41,6 +41,7 @@ namespace VidlyApp.Controllers
         }
 
         // PUT: Movies/Edit
+        [Authorize(Roles = "CanManageMovies")]
         public ActionResult Edit(int id)
         {
             var movie = _context.Movies.SingleOrDefault(m => m.Id == id);
@@ -59,6 +60,7 @@ namespace VidlyApp.Controllers
             }
         }
 
+        [Authorize(Roles = RoleName.CanManageMovies)]
         [Route("Movies/New")] 
         public ActionResult New() //The action that returns the movie form
         {
@@ -73,6 +75,7 @@ namespace VidlyApp.Controllers
         [HttpPost] //Ensure this action can only be called by HttpPost not HttpGet. If actions modify data, they should never be accessible by HTttpGet
         [ValidateAntiForgeryToken]
         [Route("Movies/Save")]
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult Save(Movie movie) //MVC Framework will automatically map request data to this model
         {
             if (!ModelState.IsValid)
@@ -109,9 +112,12 @@ namespace VidlyApp.Controllers
         [Route("Movies")]
         public ActionResult Movies()
         {
-            var movies = _context.Movies.Include(m => m.Genre).ToList();
+            if (User.IsInRole(RoleName.CanManageMovies))
+                return View("Movies");
 
-            return View(movies);
+                return View("ReadOnlyMovies");
+
+
         }
 
         public ActionResult Index(int? pageIndex, string sortBy)

@@ -20,7 +20,7 @@
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort />
+    <IISExpressSSLPort>44325</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -216,6 +216,14 @@
     <Compile Include="Migrations\202101080050077_UpdateMoviesColumnsRequired.designer.cs">
       <DependentUpon>202101080050077_UpdateMoviesColumnsRequired.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101192308385_SeedUsers.cs" />
+    <Compile Include="Migrations\202101192308385_SeedUsers.designer.cs">
+      <DependentUpon>202101192308385_SeedUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101210041197_AddDrivingLicenseUser.cs" />
+    <Compile Include="Migrations\202101210041197_AddDrivingLicenseUser.designer.cs">
+      <DependentUpon>202101210041197_AddDrivingLicenseUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Api\CustomersController.cs" />
@@ -228,6 +236,7 @@
     <Compile Include="Models\Min18YearsIfAMemberDto.cs" />
     <Compile Include="Models\Min18YearsIfAMember.cs" />
     <Compile Include="Models\Movie.cs" />
+    <Compile Include="Models\RoleName.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\CustomerFormViewModel.cs" />
@@ -500,6 +509,7 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Movies\ReadOnlyMovies.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -524,6 +534,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101080050077_UpdateMoviesColumnsRequired.resx">
       <DependentUpon>202101080050077_UpdateMoviesColumnsRequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101192308385_SeedUsers.resx">
+      <DependentUpon>202101192308385_SeedUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101210041197_AddDrivingLicenseUser.resx">
+      <DependentUpon>202101210041197_AddDrivingLicenseUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -551,7 +567,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>54933</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:54933/</IISUrl>
+          <IISUrl>https://localhost:44325/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
