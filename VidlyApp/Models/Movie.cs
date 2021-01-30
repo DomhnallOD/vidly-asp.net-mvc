@@ -14,7 +14,7 @@ namespace VidlyApp.Models
         [Required]
         public string Name { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Please enter a release date. Format: DD MMM YYYY")]
         [Display(Name = "Release Date")]
         public DateTime ReleaseDate { get; set; }
 

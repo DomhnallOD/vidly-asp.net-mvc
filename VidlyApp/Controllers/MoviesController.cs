@@ -90,11 +90,13 @@ namespace VidlyApp.Controllers
 
             if (movie.Id == 0) //If user is posing a new movie (without an ID value)
             {
+                movie.NumberAvailable = movie.NumberInStock;
                 movie.DateAdded = DateTime.Now;
                 _context.Movies.Add(movie); //Add new movie
             }
             else
             {
+                movie.NumberAvailable = movie.NumberInStock;
                 var movieInDb = _context.Movies.Single(m => m.Id == movie.Id); //Else, get the Movie object from DBModel
                 movieInDb.Name = movie.Name;
                 movieInDb.ReleaseDate = movie.ReleaseDate;

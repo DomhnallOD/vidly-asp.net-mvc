@@ -53,7 +53,7 @@ namespace VidlyApp.Models.Api
             movieDto.DateAdded = DateTime.Now;
             var movie = Mapper.Map<MovieDto, Movie>(movieDto);
             _context.Movies.Add(movie); //Add object to ApplicationDBContext
-            _context.SaveChanges(); //Persist chagnes to the DB
+            _context.SaveChanges(); //Persist changes to the DB
            
 
             movieDto.Id = movie.Id;
