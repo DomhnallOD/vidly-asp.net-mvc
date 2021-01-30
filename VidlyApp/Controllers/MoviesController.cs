@@ -41,7 +41,7 @@ namespace VidlyApp.Controllers
         }
 
         // PUT: Movies/Edit
-        [Authorize(Roles = "CanManageMovies")]
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult Edit(int id)
         {
             var movie = _context.Movies.SingleOrDefault(m => m.Id == id);
@@ -115,29 +115,10 @@ namespace VidlyApp.Controllers
             if (User.IsInRole(RoleName.CanManageMovies))
                 return View("Movies");
 
-                return View("ReadOnlyMovies");
+            return View("ReadOnlyMovies");
 
 
         }
-
-        public ActionResult Index(int? pageIndex, string sortBy)
-        {
-            //Default params if values are null
-            if (!pageIndex.HasValue)
-                pageIndex = 1;
-            if (String.IsNullOrWhiteSpace(sortBy))
-                sortBy = "Name";
-
-            return Content(String.Format("pageIndex={0}&sortBy ={1}", pageIndex, sortBy));
-        }
-
-
-        [Route("movies/released/{year}/{month:regex(\\d{2}):range(1, 12)}")]
-        public ActionResult ByReleaseDate(int year, int month)
-        {
-            return Content(year + "/" + month);
-
-        } 
     }
 
 

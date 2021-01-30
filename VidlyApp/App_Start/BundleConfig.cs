@@ -13,7 +13,9 @@ namespace VidlyApp
                         "~/Scripts/bootstrap.js",
                         "~/Scripts/bootbox.js",
                         "~/Scripts/datatables/jquery.datatables.js", // Core datatables file
-                        "~/Scripts/datatables/datatables.bootstrap.js" //Integrates datatables with BS
+                        "~/Scripts/datatables/datatables.bootstrap.js", //Integrates datatables with BS
+                        "~/Scripts/typeahead.bundle.js",
+                        "~/Scripts/toastr.js"
                         ));
 
             // jqueryval is the bundle which contains jquery code for client-side validation. Not enabled by default.
@@ -28,7 +30,9 @@ namespace VidlyApp
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/datatables/css/datatables.bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/toastr.css",
+                      "~/Content/typeahead.css"));
 
 
         }

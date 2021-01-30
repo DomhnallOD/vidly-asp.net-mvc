@@ -189,10 +189,12 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
+    <Compile Include="Controllers\RentalsController.cs" />
     <Compile Include="Dtos\CustomerDto.cs" />
     <Compile Include="Dtos\GenreDto.cs" />
     <Compile Include="Dtos\MembershipTypeDto.cs" />
     <Compile Include="Dtos\MovieDto.cs" />
+    <Compile Include="Dtos\RentalDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -224,6 +226,22 @@
     <Compile Include="Migrations\202101210041197_AddDrivingLicenseUser.designer.cs">
       <DependentUpon>202101210041197_AddDrivingLicenseUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101232315546_AddedPhoneToApplicationUser.cs" />
+    <Compile Include="Migrations\202101232315546_AddedPhoneToApplicationUser.designer.cs">
+      <DependentUpon>202101232315546_AddedPhoneToApplicationUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101260007017_AddedRentals.cs" />
+    <Compile Include="Migrations\202101260007017_AddedRentals.designer.cs">
+      <DependentUpon>202101260007017_AddedRentals.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101290009169_AddedNumberAvailableInMovies.cs" />
+    <Compile Include="Migrations\202101290009169_AddedNumberAvailableInMovies.designer.cs">
+      <DependentUpon>202101290009169_AddedNumberAvailableInMovies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101290018148_SetNumberAvailable.cs" />
+    <Compile Include="Migrations\202101290018148_SetNumberAvailable.designer.cs">
+      <DependentUpon>202101290018148_SetNumberAvailable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Api\CustomersController.cs" />
@@ -236,6 +254,8 @@
     <Compile Include="Models\Min18YearsIfAMemberDto.cs" />
     <Compile Include="Models\Min18YearsIfAMember.cs" />
     <Compile Include="Models\Movie.cs" />
+    <Compile Include="Models\Rental.cs" />
+    <Compile Include="Models\Api\RentalsController.cs" />
     <Compile Include="Models\RoleName.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -355,10 +375,15 @@
     <Content Include="Content\DataTables\images\sort_desc.png" />
     <Content Include="Content\DataTables\images\sort_desc_disabled.png" />
     <Content Include="Content\DataTables\swf\flashExport.swf" />
+    <Content Include="Content\toastr.css" />
+    <Content Include="Content\toastr.min.css" />
+    <Content Include="Content\typeahead.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bloodhound.js" />
+    <Content Include="Scripts\bloodhound.min.js" />
     <Content Include="Scripts\bootbox.js" />
     <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -440,6 +465,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\DataTables\css\mixins.scss" />
     <Content Include="Content\DataTables\css\common.scss" />
+    <Content Include="Content\toastr.scss" />
+    <Content Include="Content\toastr.less" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -455,6 +482,12 @@
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\toastr.js" />
+    <Content Include="Scripts\toastr.min.js" />
+    <Content Include="Scripts\typeahead.bundle.js" />
+    <Content Include="Scripts\typeahead.bundle.min.js" />
+    <Content Include="Scripts\typeahead.jquery.js" />
+    <Content Include="Scripts\typeahead.jquery.min.js" />
     <Content Include="Scripts\umd\popper-utils.js" />
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
@@ -510,6 +543,7 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Movies\ReadOnlyMovies.cshtml" />
+    <Content Include="Views\Rentals\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -540,6 +574,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101210041197_AddDrivingLicenseUser.resx">
       <DependentUpon>202101210041197_AddDrivingLicenseUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101232315546_AddedPhoneToApplicationUser.resx">
+      <DependentUpon>202101232315546_AddedPhoneToApplicationUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101260007017_AddedRentals.resx">
+      <DependentUpon>202101260007017_AddedRentals.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101290009169_AddedNumberAvailableInMovies.resx">
+      <DependentUpon>202101290009169_AddedNumberAvailableInMovies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101290018148_SetNumberAvailable.resx">
+      <DependentUpon>202101290018148_SetNumberAvailable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
